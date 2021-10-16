@@ -13,8 +13,6 @@
 
 .header {
   background-color: #FFFFFF;
-  margin-bottom: 48px;
-  padding: 10px 0;
 }
 
 .main-header{
@@ -29,12 +27,12 @@
 
 /* sidemenuにeventリストアップ */
 .areas {
-  background-color: #eccb8d;
+  background-color: #ece6da;
   height: calc(100vh - 100px);
 }
 
 .events{
-  background-color: #FAFAFA;
+  background-color: #e4d5d5;
   height: calc(100vh - 100px - 90px);
 }
 
