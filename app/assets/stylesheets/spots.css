@@ -12,7 +12,34 @@
 }
 
 .header {
-  background-color: #dcfad3;
+  background-color: #FFFFFF;
   margin-bottom: 48px;
   padding: 10px 0;
 }
+
+.main-header{
+  height: 100px;
+  background-color: #ece4c7;
+}
+
+.side-menu-header {
+  height: 100px; 
+  background-color: #DDDDDD;
+}
+
+/* sidemenuにeventリストアップ */
+.areas {
+  background-color: #eccb8d;
+  height: calc(100vh - 100px);
+}
+
+.events{
+  background-color: #FAFAFA;
+  height: calc(100vh - 100px - 90px);
+}
+
+.form {
+  background-color: #DDDDDD;
+  height: 90px;
+}
+

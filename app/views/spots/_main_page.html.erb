@@ -1,2 +1,19 @@
-<h1>新着 HACO情報</h1>
-         
+<div class="main-header">
+   <ul>
+   <% if user_signed_in? %>  
+         <li><%= link_to current_user.nickname, "#", class: :nav__btn %></li><br>
+          <li><%= link_to 'ログアウト', "#", method: :delete, class: :nav__btn %></li>
+  <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: :nav__btn %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: :nav__btn %></li>
+    <%# // ユーザーがログアウトしている場合に実行する処理 %>> 
+  </ul>
+    <% end %>
+</div>
+
+<div class="events">
+</div>
+
+<div class="form">
+</div>
+
