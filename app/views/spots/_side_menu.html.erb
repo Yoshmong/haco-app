@@ -1,13 +1,15 @@
   
-  <div>
-  <%= image_tag("logo.png", size: "80x80", alt: "Logo")%>
+  <div class="side_menu_text">
+  <%= image_tag("logo.png", size: "80x80", alt: "Logo")%><br>
   </div>
 
    <% if user_signed_in? %>  
-         <%= link_to current_user.nickname, edit_user_path(current_user), class: :nav__btn %><br>
-         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :nav__btn %>
+         <%= link_to current_user.nickname, edit_user_path(current_user), class: :nav__btn %>
+         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :nav__btn %><br>
   <% else %>
         <%= link_to 'ログイン', new_user_session_path, class: :nav__btn %><br>
+
         <%= link_to '新規登録', new_user_registration_path, class: :nav__btn %>
     <%# // ユーザーがログアウトしている場合に実行する処理 %>
   <% end %>
+
