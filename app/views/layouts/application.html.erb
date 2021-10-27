@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>HacoApp</title>
-    <%= csrf_meta_tags %>
+
+<head>
+  <title>Haco ni やさい</title>
+   <%= csrf_meta_tag %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# 上記の記述でwebpackで管理されているJavaScriptを参照 %>
+     <!-- CDN -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
   </head>
 
-  <body>
+<header class="header">
+      <h1><%= image_tag("logo_title.png", alt: "LOGO TITLE")%>
+      </h1>
+  <nav class="global-nav">
+    <ul>
+      <li class="nav-item active"><a href="#">HOME</a></li>
+      <li class="nav-item active"><a href="#">ABOUT</a></li>
+      <li class="nav-item active"><a href="#">NEWS</a></li>
+      <li class="nav-item active"><a href="#">TOPICS</a></li>
+      <li class="nav-item active"><a href="#">AREAS</a></li>
+      <li class="nav-item active"><a href="#">CATEGORIES</a></li>
+    </ul>
+  </nav>
+ <div>
+
+</header>
+
+ <body> 
     <%= yield %>
-  </body>
+ </body>
+
 </html>
