@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_031953) do
+ActiveRecord::Schema.define(version: 2021_11_01_103356) do
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "spot_id", null: false
+    t.integer "category_id", null: false
+    t.string "event_title", null: false
+    t.text "event_detail", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spot_id"], name: "index_events_on_spot_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "spot_name", null: false
+    t.integer "area_id", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.string "phone_number", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_spots_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -25,4 +52,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_031953) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "spots"
+  add_foreign_key "events", "users"
+  add_foreign_key "spots", "users"
 end

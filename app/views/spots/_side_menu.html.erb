@@ -1,15 +1,33 @@
-  
-  <div class="side_menu_text">
-  <%= image_tag("logo.png", size: "80x80", alt: "Logo")%><br>
-  </div>
+<header>
+  <%# // rout page へ遷移%>
+  <%= link_to image_tag("logo.png", size: "80x80", alt: "Logo"), "/" %>
+
+
+<nav>
+     <ul class="global-nav"><br><br>
 
    <% if user_signed_in? %>  
-         <%= link_to current_user.nickname, edit_user_path(current_user), class: :nav__btn %>
-         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :nav__btn %><br>
+         <%= link_to current_user.nickname, edit_user_path(current_user), class: :"nav-item" %>
+     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :"nav-item" %></li><br>
   <% else %>
-        <%= link_to 'ログイン', new_user_session_path, class: :nav__btn %><br>
+      <li><%= link_to 'ログイン', new_user_session_path, class: :"nav-item" %></li><br>
 
-        <%= link_to '新規登録', new_user_registration_path, class: :nav__btn %>
+      <li><%= link_to '新規登録', new_user_registration_path, class: :"nav-item" %><br>
     <%# // ユーザーがログアウトしている場合に実行する処理 %>
   <% end %>
+
+        <% if user_signed_in? %>
+        <li><a class="nav-item" href="#">MY PAGE</a></li><br>
+        <li><a class="nav-item" href="#">出品場所ごと</a></li><br>
+        <li><a class="nav-item" href="#">カレンダー</a></li><br>
+        <li><a class="nav-item" href="#">エリア別情報</a></li><br>
+          <% else %>
+          <li><a class="nav-item" href="#">出品場所ごと</a></li><br>
+          <li><a class="nav-item" href="#">カレンダー</a></li><br>
+          <li><a class="nav-item" href="#">エリア別情報</a></li><br>
+          <% end %>
+        </ul>
+      </div>
+      </nav>
+    </header>
 

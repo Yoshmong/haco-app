@@ -23,6 +23,7 @@ html {
 .side_menu {
   float: left;
   width: 200px;
+  font-size: 2rem;
 }
 
 
@@ -135,12 +136,6 @@ a:link, a:visited, a:hover, a:active {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-
-/* --------------------------------
- * side_menu
- * -------------------------------- */
-
 
 
 
