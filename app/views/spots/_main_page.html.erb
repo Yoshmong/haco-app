@@ -1,9 +1,11 @@
 <h1>Haco どこ？</h1><br><br>
 <h2>出品場所一覧</h2><br>
 
+
   <table class="list">
   <thead>
     <tr>
+      <th>画像</th>
       <th>Spot No.</th>
       <th>エリアno.</th>
       <th>スポット名</th>
@@ -11,13 +13,17 @@
     </tr>
   </thead>
   <tbody>
-  <% @spots.each do |spot| %>
-    <tr>
-      <td><%= spot.id%></td>
-      <td><%=spot.area_id %></td>
-      <td><%=spot.spot_name %></td>
-      <td><%= spot.address %></td>
-    </tr>
+
+<% if @spots.present? %>
+    <% @spots.each do |spot| %>
+      <tr>
+        <td><%= image_tag spot.image.variant(resize: '50x50'), class: 'item-image' if spot.image.attached? %></td>
+        <td><%= spot.id%></td>
+        <td><%= spot.area_id %></td>
+        <td><%= spot.spot_name %></td>
+        <td><%= spot.address %></td>
+      </tr>
+    <% end %> 
   <% end %>
   </tbody>
   </table>
