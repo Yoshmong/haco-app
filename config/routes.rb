@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'events/show'
   devise_for :users
   root to: "spots#index"
-  resources :users, only: [:index, :edit, :update]
-  resources :spots, only: [:index, :new]
+  resources :users
+  resources :spots
+  resources :events
+  resources :areas
 end

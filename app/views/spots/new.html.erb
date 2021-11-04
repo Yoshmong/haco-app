@@ -1,1 +1,132 @@
-箱設置場所 投稿フォーム
+<h1> 箱設置場所 新規投稿フォーム </h1>
+
+ <%= form_with model: @spot, local: true do |f| %>
+
+
+    <%# 設置場所の画像 %>
+  <div class="new-items">
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        設置場所の画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+  </div>
+    <%# 設置場所画像 %>
+
+<%# 設置場所名 %>
+   <div class="new-items">
+      <div class="weight-bold-text">
+        設置場所名（店名、農場名、場所名）
+        <span class="indispensable">必須</span>
+      </div>
+     <p>
+      <%= f.text_area :spot_title, class:"items-text", id:"item-name", placeholder:"設置場所名（店舗、農場名など）（必須 40文字まで)", maxlength:"40" %>
+     </p> 
+   </div>
+
+   <div class="form">
+     <div class="weight-bold-text">
+          設置場所のエリア（選択してください）
+          <span class="indispensable">必須</span>
+        </div>
+       <p>  
+         <%= f.select :area, [["高松市", "1"], ["東讃", "2"], ["中讃", "３"], ["西讃", "４"], ["島エリア", "５"]], include_blank: "選択して下さい" %>
+       </p>
+    </div>
+
+    <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">郵便番号</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :postal_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+      </div>
+  
+     <div class="new-items">
+      <div class="weight-bold-text">
+        設置場所の住所
+        <span class="indispensable">必須</span>
+      </div>
+     <p>
+      <%= f.text_area :spot_title, class:"items-text", id:"item-name", placeholder:"設置場所の住所（必須 40文字まで)", maxlength:"40" %>
+     </p> 
+
+     <div class="new-items">
+      <div class="weight-bold-text">
+        設置場所名（店名、農場名、場所名）
+        <span class="indispensable">必須</span>
+      </div>
+    <p>
+      <%= f.text_area :spot_title, class:"items-text", id:"item-name", placeholder:"設置場所名（店舗、農場名など）（必須 40文字まで)", maxlength:"40" %>
+     </p> 
+
+<%
+=begin
+%>
+テキストエリア size: "40x1"
+<%= text_area_tag(:message, "Hi, nice site", size: "40x1") %><br>
+パスワード
+<%= password_field_tag(:password) %><br>
+隠しフィールド
+<%= hidden_field_tag(:parent_id, "5") %><br>
+検索フィールド
+<%= search_field(:user, :name) %><br>
+電話番号フィールド
+<%= telephone_field(:user, :phone) %><br>
+日付フィールド
+<%= date_field(:user, :born_on) %><br>
+時刻フィールド
+<%= time_field(:task, :started_at) %><br>
+色フィールド
+<%= color_field(:user, :favorite_color) %><br>
+ローカル日時フィールド
+<%= datetime_local_field(:user, :graduation_day) %><br>
+月フィールド
+<%= month_field(:user, :birthday_month) %><br>
+週フィールド
+<%= week_field(:user, :birthday_week) %><br>
+URLフィールド
+<%= url_field(:user, :homepage) %><br>
+メールアドレスフィールド
+<%= email_field(:user, :address) %><br>
+数値フィールド
+<%= number_field(:product, :price, in: 1.0..20.0, step: 0.5) %><br>
+範囲フィールド
+<%= range_field(:product, :discount, in: 1..100) %><br>
+
+
+     <%# 設置場所詳細：後で追加 %>
+
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"設置場所名（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          設置場所の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"設置場所の説明（必須 1,000文字まで）（アクセス情報、目印など）例）県道＊＊号線沿い、○○小学校の裏手の道を西にまっすぐいくと左手に青い屋根の建物あり。▲▲バス停より下車、徒歩１５分ほど。" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+<%
+=end
+%>
+ 
+  <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "出品（箱を設置）する",class:"sell-btn" %>
+    </div>
+    
+    
+    <div class="sell-btn-contents">
+     <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+   
+    </div>
+  <% end %>
