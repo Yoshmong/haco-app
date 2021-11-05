@@ -15,6 +15,20 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    if @spot.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def update
+    @spot = Spot.new(spot_params)
+    if @spot.save
+      redirect_to root_path
+    else
+      spot :new
+    end
   end
 
 end

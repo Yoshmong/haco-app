@@ -5,11 +5,13 @@
 
 <ul>
 <% @events.each do |event| %>
+<li>
  <div class="box col3" style="background-image">
   <a href="#">
-        <%= image_tag("image_S_3.jpg", alt: "event.event_id")%>
+        <%= image_tag("image_yasai_1", alt: "event.event_id")%>
         <div class="category"><%= event.event_title %></div><br>
-          設置終了:<%= event.end_time %></li>
+          設置終了:<%= event.end_time %>
+</li>
     <% end %>
  </ul>
 </div>
