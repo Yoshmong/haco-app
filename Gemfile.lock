@@ -88,6 +88,9 @@ GEM
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -108,16 +111,22 @@ GEM
     masonry-rails (0.2.4)
       railties
     method_source (1.0.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2021.0901)
     mini_magick (4.11.0)
     mini_mime (1.1.1)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
+    multi_xml (0.6.0)
     mysql2 (0.5.3)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    open_street_map (1.2.1)
+      httparty (~> 0.17)
     orm_adapter (0.5.0)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -240,6 +249,7 @@ DEPENDENCIES
   masonry-rails
   mini_magick
   mysql2 (>= 0.5.3)
+  open_street_map
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
