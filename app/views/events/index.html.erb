@@ -2,23 +2,27 @@
 <h2>出品された箱についての情報</h2><br>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-
-<ul>
-<% @events.each do |event| %>
-<li>
- <div class="box col3" style="background-image">
-  <a href="#">
-        <%= image_tag("image_yasai_1", alt: "event.event_id")%>
-        <div class="category"><%= event.event_title %></div><br>
-          設置終了:<%= event.end_time %>
-</li>
-    <% end %>
- </ul>
+<footer class="footer">
+  <ul class="horizontal-list">
+      <li class="horizontal-item"><a href="#">ABOUT US</a></li>
+      <li class="horizontal-item"><a href="#">SITE MAP</a></li>
+      <li class="horizontal-item"><a href="#">SNS</a></li>
+      <li class="horizontal-item"><a href="#">CONTACT</a></li>
+  </ul>
+</footer>
 </div>
 
-<div>
-以下、ダミーBOX
-</div>
+  <% @events.each do |event| %>
+  <div class="box col3" style="background-image">
+    <a href="#">
+    <%= image_tag("image_yasai_1", alt: "event.event_id")%>
+    <div class="category"><%= event.event_title %></div>
+    <p class="description">設置終了:<%= event.end_time %></p>
+    </a>
+  </div>
+  <% end %>
+
+
 <div class="box col5">
    <a href="#">
   <%= image_tag("image_L_1.jpg", alt: "HOT TOPICS")%>
@@ -26,7 +30,7 @@
   <p class="description">Lorem ipsum dolor sit amet, 
   consectetur adipiscing elit, sed do eiusmod tempor incididunt 
   ut labore et dolore magna aliqua. </p>
- </a>
+  </a>
 </div>
 
 <div class="box col5">
@@ -209,6 +213,7 @@
 
 </div>
 
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 <footer class="footer">
   <ul class="horizontal-list">
       <li class="horizontal-item"><a href="#">ABOUT US</a></li>
@@ -217,3 +222,4 @@
       <li class="horizontal-item"><a href="#">CONTACT</a></li>
   </ul>
 </footer>
+</div>
