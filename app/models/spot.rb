@@ -7,10 +7,23 @@ class Spot < ApplicationRecord
   # presence: true do
   has_one_attached :image
 
-  validate  :image_content_type, if: :was_attached?
-  validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}
-  validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
+  
+  with_options presence: true do
+    validate  :image_content_type, if: :was_attached?
+    validates :user_id
+    validates :spot_name
+    validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
+    validates :address
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "is invalid"}
+  end
+
+
 end
+
+
+
+
 
 private
 
