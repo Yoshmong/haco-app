@@ -10,6 +10,9 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
 
+  def show    
+  end
+
   def edit
   end  
 
@@ -55,6 +58,6 @@ private
   end
 
   def set_spot
-    @spot = Spot.find(params[:spot_id])
-    @spot = @area.spot
+    @spot = Spot.find(params[:id])
+    
   end

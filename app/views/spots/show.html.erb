@@ -1,23 +1,49 @@
 <div class="contents row">
-    <h2 class="name">
-      <%= @spot.spot_name %>
-    </h2>
+    <h1 class="name">
+      詳細情報：<%= @spot.spot_name %>
+    </h1>
     <div>
       <%= image_tag @spot.image %>
-    </div>
-    
-    <div class="more">
-           <ul class="more_list">
-        <li>
-          <%= link_to '編集', edit_spot_path(@spot.id), method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', spot_path(@spot.id), method: :delete %>
-        </li>
-      </ul>
-    </div>
-    <p><%= @spot.id %></p>
-    <span class="name"><%= @spot.spot_name %>
+    </div><br>
+
+ <table class="list">
+  
+  <tr>
+    <th>Spot No.</th>
+        <td><%= @spot.id%></td>
+    </tr>
+  <tr>
+      <th>エリアno.</th>
+        <td><%= @spot.area_id %></td>
+  </tr>
+  <tr>
+      <th>スポット名</th>
+         <td><%= @spot.spot_name %></td>
+    </tr>
+  <tr>
+       <th>郵便番号</th>
+        <td><%= @spot.postal_code %></td>
+    </tr>
+  <tr>
+      <th>住所</th>
+        <td><%= @spot.address %></td>
+  </tr>
+  <tr>
+      <th>電話</th>
+        <td><%= @spot.phone_number %></td>
+  </tr> 
+  <tr>
+      <th>編集</th>
+        <td><%= link_to '編集', edit_spot_path(@spot.id), method: :get %></td>
+    </tr>
+  <tr>
+      <th>削除</th>
+        <td><%= link_to '削除', spot_path(@spot.id), method: :delete %></td>
+    </tr>
+
+  </table>
+
+
     </span>
   </div>
 </div>

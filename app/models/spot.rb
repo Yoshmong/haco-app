@@ -9,7 +9,7 @@ class Spot < ApplicationRecord
 
   
   with_options presence: true do
-    validate  :image_content_type, if: :was_attached?
+    validates :image
     validates :user_id
     validates :spot_name
     validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}

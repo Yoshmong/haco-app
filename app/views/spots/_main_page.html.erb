@@ -1,5 +1,5 @@
 <h1>Haco どこ？</h1><br><br><br>
-<h2>出品場所一覧 （エリア１高松市、２東讃、３中讃、４西讃、５島エリア）</h2><br>
+<h2>出品場所一覧 （エリア: １高松市、２東讃、３中讃、４西讃、５島エリア）</h2><br>
 
 
   <table class="list">
@@ -25,7 +25,7 @@
         <td><%= spot.area_id %></td>
         <td><%= spot.spot_name %></td>
         <td><%= spot.address %></td>
-        <td><<%= link_to '詳細', edit_spot_path(spot.id), method: :get %></td>
+        <td><<%= link_to '詳細', spot_path(spot.id), method: :get %></td>
       </tr>
     <% end %> 
   <% end %>
