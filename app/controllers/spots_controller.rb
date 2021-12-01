@@ -18,6 +18,7 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    binding.pry
     if @spot.save
       redirect_to root_path
     else
