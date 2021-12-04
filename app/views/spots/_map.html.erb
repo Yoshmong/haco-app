@@ -1,0 +1,29 @@
+<div><h2>
+------ MAP ------
+</h2></div>
+
+<div id="map"></div>
+  <style type="text/css">
+    #map {
+      height:400px;
+    }
+  </style>
+  <script type="text/javascript">
+        L.Icon.Default.imagePath = "/assets";
+        var map = L.map('map').setView([緯度, 経度],17);
+        var osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+        var osmAttrib = "Map data OpenstreetMap contributors";
+        L.tileLayer(osmUrl,{
+          attribution: osmAttrib,
+          maxZoom: 20,
+        }).addTo(map);
+
+var marker = L.marker([緯度, 経度]).addTo(map);
+
+        map.on("click",function(e){
+          marker.setLatLng(e.latlng);
+          $('#map_latitude').val(e.latlng.lat);
+          $('#map_longitude').val(e.latlng.lng);
+        });
+
+</script>

@@ -50,8 +50,8 @@ Name Haconi やさい
 | user | references | null:false, foreign_key: true|
 | spot | references | null:false, foreign_key: true|
 | category_id| integer | null: false | 
-| title | string | null:false| 
-| detail| text | null: false | 
+| event_title | string | null:false| 
+| event_detail| text | null: false | 
 | start_time | datetime | null: false |
 | end_time | datetime | null: false | 
 

@@ -1,0 +1,55 @@
+<h1>Haco 詳細</h1>
+<p>設置時期、住所、地図</p>
+
+
+  <h2 class="name">
+      <%= @spot.spot_name %>
+  </h2>
+    <div>
+      <%= image_tag @spot.image %>
+    </div>
+   
+    <div>
+      <span>
+        <%= @spot_area_id %>
+      </span>
+    </div>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @spot.user_id %>
+        <%= link_to "編集", edit_spot_path(@spot.id), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", spot_path(@spot.id), method: :delete, class:"item-destroy" %>
+      <% else %>
+        <%= link_to "購入画面に進む", spot_orders_path(@spot.id) ,class:"item-red-btn" %>
+      <% end %>
+    <% end %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="item_name">設置場所名</th>
+          <td class="item-value"><%= @spot.spot_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-spot">エリア(番号直接入力？）</th>
+          <td class="detail-value"><%= @spot.spot_area_id %></td>
+        </tr>
+        <tr>
+          <th class="detail-spot">郵便番号</th>
+          <td class="detail-value"><%= @spot.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="detail-spot">住所</th>
+          <td class="detail-value"><%= @spot.address %></td>
+        </tr>
+        <tr>
+          <th class="detail-spot">建物名</th>
+          <td class="detail-value"><%= @spot.building %></td>
+        </tr>
+        <tr>
+          <th class="detail-spot">電話番号</th>
+          <td class="detail-value"><%= @spot.phone_number %></td>
+        </tr>
+      </tbody>
+   
