@@ -8,8 +8,6 @@ FactoryBot.define do
     address          { Gimei.town.kanji }
     building         { '建物名' }
     phone_number     { "0#{rand(0..9)}0#{rand(1_000_000..99_999_999)}" }
-    end
-    end
     
   end
 end
