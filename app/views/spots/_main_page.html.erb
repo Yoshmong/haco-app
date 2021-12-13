@@ -1,201 +1,37 @@
-
-<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-
- <div class="box col5">
-   <a href="#">
-  <%= image_tag("image_L_1.jpg", alt: "HOT TOPICS")%>
-  <div class="category">HOT TOPICS</div>
-  <p class="description">Lorem ipsum dolor sit amet, 
-  consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-  ut labore et dolore magna aliqua. </p>
- </a>
-</div>
-
-<div class="box col5">
-   <a href="#">
-  <%= image_tag("image_M_4.jpg", alt: "HOT TOPICS")%>
-  <div class="category">HOT TOPICS</div>
-  <p class="description">Lorem ipsum dolor sit amet, 
-  consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-  ut labore et dolore magna aliqua. </p>
- </a>
-</div>
-
-    <div class="box col2">
-    <a href="#">
-    <%= image_tag("image_S_1.jpg", alt: "HOT TOPICS")%>
-    <div class="category">HOT TOPICS</div>
-    <p class="description">Lorem ipsum dolor sit amet, 
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-    ut labore et dolore magna aliqua. </p>
-    </a>
-    </div>
- 
-<div class="box col2">
-   <a href="#">
-  <%= image_tag("image_S_2.jpg", alt: "HOT TOPICS")%>
-  <div class="category">HOT TOPICS</div>
-  <p class="description">Lorem ipsum dolor sit amet, 
-  consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-  ut labore et dolore magna aliqua. </p>
- </a>
-</div>
-
- <div class="box col1">
-    <a href="#">
-      <%= image_tag("image_S_7.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet... </p>
-    </a>
-  </div>
-
- <div class="box col1">
-    <a href="#">
-      <%= image_tag("image_S_8.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet... </p>
-    </a>
-  </div>
-
- <div class="box col1">
-    <a href="#">
-      <%= image_tag("image_S_5.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet... </p>
-    </a>
-  </div>
-
-<div class="box col1">
-   <a href="#">
-  <%= image_tag("image_S_6.jpg", alt: "HOT TOPICS")%>
-  <div class="category">HOT TOPICS</div>
-  <p class="description">Lorem ipsum dolor sit amet... </p>
- </a>
-</div>
-
-  <div class="box col1">
-    <a href="#">
-    <%= image_tag("image_S_9.jpg", alt: "HOT TOPICS")%>
-    <div class="category">HOT TOPICS</div>
-    <p class="description">Lorem ipsum dolor sit amet... </p>
-    </a>
-  </div>
-
-  <div class="box col1">
-    <a href="#">
-      <%= image_tag("image_S_8.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet... </p>
-    </a>
-  </div>
+<h1>Haco どこ？</h1><br><br><br>
+<h2>出品場所一覧 （エリア: １高松市、２東讃、３中讃、４西讃、５島エリア）</h2><br>
 
 
-  <div class="box col2">
-    <a href="#">
-    <%= image_tag("image_S_10.jpg", alt: "HOT TOPICS")%>
-    <div class="category">HOT TOPICS</div>
-    <p class="description">Lorem ipsum dolor sit amet, 
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-    ut labore et dolore magna aliqua. </p>
-   </a>
-  </div>
+  <table class="list">
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>Spot No.</th>
+      <th>エリアno.</th>
+      <th>スポット名</th>
+      <th>住所</th>
+      <th>詳細</th>
+      
 
-  <div class="box col2">
-    <a href="#">
-    <%= image_tag("image_S_2.jpg", alt: "HOT TOPICS")%>
-    <div class="category">HOT TOPICS</div>
-    <p class="description">Lorem ipsum dolor sit amet, 
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-    ut labore et dolore magna aliqua. </p>
-    </a>
-    </div>
+    </tr>
+  </thead>
+  <tbody>
 
-    <div class="box col5">
-    <a href="#">
-    <%= image_tag("image_M_1.jpg", alt: "HOT TOPICS")%>
-    <div class="category">HOT TOPICS</div>
-    <p class="description">Lorem ipsum dolor sit amet, 
-    consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-    ut labore et dolore magna aliqua. </p>
-   </a>
-  </div>
+<% if @spots.present? %>
+    <% @spots.each do |spot| %>
+      <tr>
+        <td><%= image_tag spot.image.variant(resize: '90x90'), class: 'item-image' if spot.image.attached? %></td>
+        <td><%= spot.id%></td>
+        <td><%= spot.area_id %></td>
+        <td><%= spot.spot_name %></td>
+        <td><%= spot.address %></td>
+        <td><<%= link_to '詳細', spot_path(spot.id), method: :get %></td>
+      </tr>
+    <% end %> 
+  <% end %>
+  </tbody>
+  </table>
 
-  <div class="box col5">
-      <a href="#">
-      <%= image_tag("image_M_2.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet, 
-      consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua. </p>
-    </a>
-  </div>
+  <div>
   
-    <div class="box col2">
-      <a href="#">
-      <%= image_tag("image_S_2.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet, 
-      consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua. </p>
-    </a>
-    </div>
-
-    <div class="box col2">
-        <a href="#">
-        <%= image_tag("image_S_2.jpg", alt: "HOT TOPICS")%>
-        <div class="category">HOT TOPICS</div>
-        <p class="description">Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-        ut labore et dolore magna aliqua. </p>
-      </a>
-    </div>
-  
-
-    <div class="box col3">
-        <a href="#">
-        <%= image_tag("image_S_3.jpg", alt: "HOT TOPICS")%>
-        <div class="category">HOT TOPICS</div>
-        <p class="description">Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-        ut labore et dolore magna aliqua. </p>
-      </a>
-    </div>
-
-  <div class="box col1">
-        <a href="#">
-        <%= image_tag("image_S_1.jpg", alt: "HOT TOPICS")%>
-        <div class="category">HOT TOPICS</div>
-        <p class="description">Lorem ipsum dolor sit amet... </p>
-      </a>
-    </div>
-
-    <div class="box col4">
-      <a href="#">
-      <%= image_tag("image_M_3.jpg", alt: "HOT TOPICS")%>
-      <div class="category">HOT TOPICS</div>
-      <p class="description">Lorem ipsum dolor sit amet, 
-      consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-      ut labore et dolore magna aliqua. </p>
-      </a>
-   </div>
-
-    <div class="box col5">
-        <a href="#">
-        <%= image_tag("image_M_4.jpg", alt: "HOT TOPICS")%>
-        <div class="category">HOT TOPICS</div>
-        <p class="description">Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-        ut labore et dolore magna aliqua. </p>
-      </a>
-    </div>
-
-</div>
-
-<footer class="footer">
-  <ul class="horizontal-list">
-      <li class="horizontal-item"><a href="#">ABOUT US</a></li>
-      <li class="horizontal-item"><a href="#">SITE MAP</a></li>
-      <li class="horizontal-item"><a href="#">SNS</a></li>
-      <li class="horizontal-item"><a href="#">CONTACT</a></li>
-  </ul>
-</footer>
+  </div>
