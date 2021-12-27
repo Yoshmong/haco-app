@@ -3,7 +3,13 @@
       詳細情報：<%= @spot.spot_name %>
     </h1>
     <div>
+      <% if @spot.image.attached? %>
       <%= image_tag @spot.image %>
+      <% else %>
+      ( Spot 画像がありません )
+      <%# <%= image_tag "#"%> 
+      <% end %>
+     
     </div><br>
 
  <table class="list">

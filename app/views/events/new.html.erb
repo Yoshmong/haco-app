@@ -1,0 +1,56 @@
+<h1> やさい箱 投稿フォーム </h1><br>
+
+<%= render 'layouts/error_messages', model: @event %>
+
+ <%= form_with(model: @event, local: true) do |f| %>
+
+       <div class="weight-bold-text">
+       (1) 箱の呼び名
+        <span class="indispensable">必須</span>
+      </div><br>
+     <p>
+      <%= f.text_area :event_name, class:"items-text", id:"item-name", placeholder:"箱のn名前（必須 40文字まで)", maxlength:"40" %>
+     </p> 
+   </div><br>
+
+       (２) 箱の中身ついて（野菜の種類、数量など）
+        <span class="indispensable">必須</span>
+      </div><br>
+     <p>
+      <%= f.text_area :event_name, class:"items-text", id:"item-name", placeholder:"箱の内容について記述（必須 40文字まで)", maxlength:"40" %>
+     </p> 
+   </div><br>
+
+    <div class="weight-bold-text">
+     (３) 設置場所データ（すでに登録済みの箱の設置場所を選択してください） <span class="indispensable">必須</span><br><br>
+          <p>  
+            <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"area-select"}) %>
+          </p>
+     <br>
+    <%# 設置場所の画像 %>
+  <div class="new-items">
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        (3) 箱の画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+         ** クリックしてファイルをアップロード（拡張子が「.png」または「.jpeg」の画像を投稿してください。**
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+  </div>
+   
+  <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "箱設置場所を投稿",class:"sell-btn" %>
+     </div><br>
+      
+    <div class="sell-btn-contents">
+     <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  <% end %>
+
+
