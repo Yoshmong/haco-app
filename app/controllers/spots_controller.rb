@@ -14,9 +14,9 @@ class SpotsController < ApplicationController
   end
 
   def edit
-    if current_user.id != @spot.user_id present?
-     redirect_to root_path
-    end
+    # if current_user.id != @spot.user_id present?
+    #  redirect_to root_path
+    # end
   end
 
 
