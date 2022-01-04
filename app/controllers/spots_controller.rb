@@ -23,11 +23,10 @@ class SpotsController < ApplicationController
   end
   
   def update
-    @spot = Spot.new(spot_params)
-    if @spot.save
-      redirect_to root_path
+    if @spot.update(spot_params)
+      redirect_to spot_path(@spot.id)
     else
-      spot :new
+      render :edit
     end
   end
 
@@ -44,15 +43,7 @@ class SpotsController < ApplicationController
     end
   end
   
-  def update
-    if @spot.update(spot_params)
-      redirect_to spot_path(@spot.id)
-    else
-      render :edit
-    end
-  end
-  
-end
+ 
   
 private
 

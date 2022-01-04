@@ -5,8 +5,7 @@
  <%= form_with(model: @spot, local: true) do |f| %>
 
     <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-  %>
-
+ 
        <div class="weight-bold-text">
        (1) 設置場所名（店名、農場名、場所名）
         <span class="indispensable">必須</span>
@@ -75,10 +74,11 @@
    
   <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "変更する",class:"sell-btn" %>
+      <%= f.submit "編集内容を反映する",class:"sell-btn" %>
      </div><br>
       
     <div class="sell-btn-contents">
      <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
+
   <% end %>
