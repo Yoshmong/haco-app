@@ -13,28 +13,6 @@ class SpotsController < ApplicationController
   def show    
   end
 
-  def edit
-    # if current_user.id != @spot.user_id present?
-    #  redirect_to root_path
-    # end
-  end
-
-
-  # def edit
-  #   if current_user.id != @item.user_id || @item.order.present?
-  #    redirect_to root_path
-  #   end
-  #  end
- 
-  #  def update
-  #    if @item.update(item_params)
-  #      redirect_to item_path(@item.id)
-  #    else
-  #      render :edit
-  #    end
-  #  end
-
-
   def create
     @spot = Spot.new(spot_params)
     if @spot.save
@@ -43,13 +21,12 @@ class SpotsController < ApplicationController
       render :new
     end
   end
-
+  
   def update
-    @spot = Spot.new(spot_params)
-    if @spot.save
-      redirect_to root_path
+    if @spot.update(spot_params)
+      redirect_to spot_path(@spot.id)
     else
-      spot :new
+      render :edit
     end
   end
 
@@ -58,9 +35,16 @@ class SpotsController < ApplicationController
     flash[:success] = "Your Post has been removed."
     redirect_to root_path
   end 
-
-end
-
+  
+  
+  def edit
+    if current_user.id != @spot.user_id
+      redirect_to root_path
+    end
+  end
+  
+ 
+  
 private
 
   def spot_params
